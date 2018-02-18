@@ -1,1 +1,140 @@
 <canvas id="myChart" width="382" height="414"></canvas>
+<br>
+  <div  class="details" id="details">
+  	<br>
+  	<br>
+  	<br>
+  	<h1 style="text-align: center;"> Tap chart to show details </h1>
+	
+  </div>
+
+  <div style="display: none;" id="housing">
+  	<hr>
+  	<h1 style="text-align: center;"> Housing </h1>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Cost $</th>
+	  </tr>
+	  <tr *ngIf="user_data.ret.user.house.own_house">
+	    <td>Morgage</td>
+	    <td>${{user_data.ret.user.house.morgage}}</td>
+	  </tr>
+	  <tr *ngIf="!user_data.ret.user.house.own_house">
+	    <td>Rent</td>
+	    <td>${{user_data.ret.user.house.rent}}</td>
+	  </tr>
+	  <tr>
+	    <td>Utility</td>
+	    <td>${{user_data.ret.user.house.utulity}}</td>
+	  </tr>
+	  <tr>
+	    <td>Other</td>
+	    <td>${{user_data.ret.user.house.house_maintenance}}</td>
+	  </tr>
+	</table>
+  </div>
+
+  <div style="display: none;" id="spending">
+  <hr>
+  	<h1 style="text-align: center;"> Spending </h1>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Cost $</th>
+	  </tr>
+	  <tr>
+	    <td>Grocery</td>
+	    <td>${{user_data.ret.user.spending.grocery}}</td>
+	  </tr>
+	  <tr>
+	    <td>Entertaiment</td>
+	    <td>${{user_data.ret.user.spending.restaurant}}</td>
+	  </tr>
+	  <tr>
+	    <td> Suscription</td>
+	    <td>${{user_data.ret.user.spending.monthly_suscription}}</td>
+	  </tr>
+	  <tr>
+	    <td>Other Spendings</td>
+	    <td>${{user_data.ret.user.spending.other_spending}}</td>
+	  </tr>
+	</table>
+  </div>
+
+  <div style="display: none;" id="transportation">
+  <hr>
+  	<h1 style="text-align: center;"> Transportation </h1>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Cost $</th>
+	  </tr>
+	  <tr *ngIf="user_data.ret.user.vehicule.has_vehicule">
+	    <td>Car</td>
+	    <td>{{user_data.ret.user.vehicule.car_make}} {{user_data.ret.user.vehicule.car_model}} {{user_data.ret.user.vehicule.car_year}}</td>
+	  </tr>
+	  <tr *ngIf="user_data.ret.user.vehicule.has_vehicule">
+	    <td>Payment</td>
+	    <td>${{user_data.ret.user.vehicule.car_payment}}</td>
+	  </tr>
+	  <tr *ngIf="user_data.ret.user.vehicule.has_vehicule">
+	    <td> Fuel</td>
+	    <td>${{user_data.ret.user.vehicule.fuel}}</td>
+	  </tr>
+	  <tr>
+	    <td>Public Transport</td>
+	    <td>${{user_data.ret.user.vehicule.public_cost}}</td>
+	  </tr>
+	  <tr>
+	    <td>Other</td>
+	    <td>${{user_data.ret.user.vehicule.other_car_cost}}</td>
+	  </tr>
+	</table>
+  </div>
+
+  <div style="display: none;" id="taxes">
+  <hr>
+  	<h1 style="text-align: center;"> Taxes </h1>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Cost $</th>
+	  </tr>
+	  <tr>
+	    <td>Federal Tax</td>
+	    <td>${{get_fed_tax()}}</td>
+	  </tr>
+	  <tr>
+	    <td>State Tax</td>
+	    <td>${{get_state_tax()}}</td>
+	  </tr>
+	  <tr>
+	    <td> Local Tax</td>
+	    <td>${{get_local_tax()}}</td>
+	  </tr>
+	  </table>
+  </div>
+
+  <div style="display: none;" id="saving">
+  <hr>
+  	<h1 style="text-align: center;"> Saving </h1>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Cost $</th>
+	  </tr>
+	  <tr>
+	    <td>Emergency Savings</td>
+	    <td>${{user_data.ret.user.saving.emrgency_saving}}</td>
+	  </tr>
+	  <tr>
+	    <td>Investment</td>
+	    <td>${{user_data.ret.user.saving.investment}}</td>
+	  </tr>
+	  <tr>
+	    <td>Saving Account</td>
+	    <td>${{user_data.ret.user.saving.saving_account}}</td>
+	  </tr>
+	</table>
+  </div>
