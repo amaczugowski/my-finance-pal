@@ -3,38 +3,30 @@ import * as Chart from 'chart.js';
 import { UserDataProvider } from '../../providers/user-data/user-data';
 
 /**
- * Generated class for the MyChartComponent component.
+ * Generated class for the MyGraphComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
 @Component({
-  selector: 'my-chart',
-  templateUrl: 'my-chart.html'
+  selector: 'my-graph',
+  templateUrl: 'my-graph.html'
 })
-export class MyChartComponent implements AfterViewInit {
+export class MyGraphComponent implements AfterViewInit {
 
   canvas: any;
   ctx: any;
-  taxes: number;
-  housing: number;
-  transportation: number;
-  spending: number;
-  saving: number;
+  goals: any;
 
   constructor(userDataProvider: UserDataProvider) {
-    this.taxes = userDataProvider.getMonthlyTaxes();
-    this.housing = userDataProvider.getHousing();
-    this.transportation = userDataProvider.getTransportation();
-    this.spending = userDataProvider.getSpending();
-    this.saving = userDataProvider.getSaving();
+    this.goals = userDataProvider;
   }
 
   ngAfterViewInit() {
-    this.canvas = document.getElementById('myChart');
+    this.canvas = document.getElementById('myGraph');
     this.ctx = this.canvas.getContext('2d');
     let myChart = new Chart(this.ctx, {
-      type: 'pie',
+      type: 'line',
       data: {
           labels: [
             "Taxes", 
@@ -45,11 +37,7 @@ export class MyChartComponent implements AfterViewInit {
           ],
           datasets: [{
               data: [
-                this.taxes, 
-                this.housing, 
-                this.transportation, 
-                this.spending, 
-                this.saving
+                1, 2, 3, 4, 5
               ],
               backgroundColor: [
                   'rgba(255, 99, 132, 1)',
@@ -76,14 +64,6 @@ export class MyChartComponent implements AfterViewInit {
         display: true
       }
     });
-
-    // this.canvas.onclick = function(e) {
-    //    let slice = myChart.getElementAtEvent(e);
-    //    if (!slice.length) return; // return if not clicked on slice
-    //    let label = slice[0]._model.label;
-    //    this.currLabel = label;
-    //    alert('hi');
-    // }
   }
 
 }
