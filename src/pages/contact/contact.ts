@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {UserDataProvider} from '../../providers/user-data/user-data';
 
+
 @Component({
     selector: 'page-contact',
   	templateUrl: 'contact.html'
