@@ -19,8 +19,18 @@ export class UserDataProvider {
     return this.user_data;
   }
 
+  public getYearlySalary() {
+    return this.user_data.ret.user.yearly_income;
+  }
+
   public getTaxes() {
-    return this.user_data.tax.fed + this.user_data.tax.state;
+    return this.user_data.tax.fed + 
+        this.user_data.tax.state +
+        (this.getYearlySalary() * .05);
+  }
+
+  public getMonthlyTaxes() {
+    return this.getTaxes() / 12;
   }
 
   public getHousing() {
@@ -45,6 +55,15 @@ export class UserDataProvider {
     return this.user_data.ret.user.saving.investment +
         this.user_data.ret.user.saving.saving_account +
         this.user_data.ret.user.saving.emrgency_saving;
+  }
+
+  public getAfterExpenses() {
+    return this.getYearlySalary() - 12 *
+        (this.getMonthlyTaxes() + 
+        this.getHousing() + 
+        this.getTransportation() + 
+        this.getSaving() + 
+        this.getSpending());
   }
 
   load() {

@@ -23,7 +23,7 @@ export class MyChartComponent implements AfterViewInit {
   saving: number;
 
   constructor(userDataProvider: UserDataProvider) {
-    this.taxes = userDataProvider.getTaxes();
+    this.taxes = userDataProvider.getMonthlyTaxes();
     this.housing = userDataProvider.getHousing();
     this.transportation = userDataProvider.getTransportation();
     this.spending = userDataProvider.getSpending();
@@ -61,7 +61,7 @@ export class MyChartComponent implements AfterViewInit {
                   'rgba(255, 99, 132, 1)',
                   'rgba(54, 162, 235, 1)',
                   'rgba(255, 206, 86, 1)',
-                  'rgba(135, 84, 250, 1)',
+                  'rgba(135, 84, 200, 1)',
                   'rgba(22, 128, 44, 1)'
               ],
               borderWidth: 1
