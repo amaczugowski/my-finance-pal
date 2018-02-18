@@ -8,7 +8,7 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-title>Icon List</ion-title>
+    <ion-title>My Profile </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -20,19 +20,19 @@
       Housing
     </ion-list-header>
 
-    <ion-item>
+    <ion-item *ngIf="user_data.ret.user.house.own_house">
       <ion-icon name='card' item-start></ion-icon>
       Morgage
       <ion-note item-end>
-      To the moon
+      ${{user_data.ret.user.house.morgage}}
       </ion-note>
     </ion-item>
 
-    <ion-item>
+    <ion-item *ngIf="!user_data.ret.user.house.own_house">
       <ion-icon name='card' item-start></ion-icon>
       Rent
       <ion-note item-end>
-      To the moon
+      ${{user_data.ret.user.house.rent}}
       </ion-note>
     </ion-item>
 
@@ -40,7 +40,7 @@
       <ion-icon name='wifi' item-start></ion-icon>
       Utulity
       <ion-note item-end>
-      utils
+      ${{user_data.ret.user.house.utulity}}
       </ion-note>
     </ion-item>
 
@@ -48,7 +48,7 @@
       <ion-icon name='calendar' item-start></ion-icon>
       Other
       <ion-note item-end>
-      other expenses
+      ${{user_data.ret.user.house.house_maintenance}}
       </ion-note>
     </ion-item>
 
@@ -64,37 +64,39 @@
       Transportation
     </ion-list-header>
 
+    <div *ngIf="user_data.ret.user.vehicule.has_vehicule">
+      <ion-item>
+        car
+        <ion-icon name='car' item-start></ion-icon>
+        <ion-note item-end>{{user_data.ret.user.vehicule.car_make}} {{user_data.ret.user.vehicule.car_model}} ${{user_data.ret.user.vehicule.car_year}}</ion-note>
+      </ion-item>
+
+      <ion-item>
+        Payment
+        <ion-icon name='cash' item-start></ion-icon>
+        <ion-note item-end>${{user_data.ret.user.vehicule.car_payment}}</ion-note>
+      </ion-item>
+
+
+      <ion-item>
+        fuel
+        <ion-icon name='flash' item-start></ion-icon>
+        <ion-note item-end>${{user_data.ret.user.vehicule.fuel}}</ion-note>
+      </ion-item>
+    </div>
+    
     <ion-item>
-      car
+      Public Transport
       <ion-icon name='car' item-start></ion-icon>
-      <ion-note item-end>Toyota Camry 2016</ion-note>
-    </ion-item>
-
-    <ion-item>
-      Payment
-      <ion-icon name='cash' item-start></ion-icon>
-      <ion-note item-end>Crucio!</ion-note>
-    </ion-item>
-
-
-    <ion-item>
-      fuel
-      <ion-icon name='flash' item-start></ion-icon>
-      <ion-note item-end>Crucio!</ion-note>
+      <ion-note item-end>${{user_data.ret.user.vehicule.public_cost}}</ion-note>
     </ion-item>
 
     <ion-item>
       <ion-icon name='calendar' item-start></ion-icon>
       Other
       <ion-note item-end>
-      other expenses
+      ${{user_data.ret.user.vehicule.other_car_cost}}
       </ion-note>
-    </ion-item>
-
-    <ion-item>
-      Public Transport
-      <ion-icon name='car' item-start></ion-icon>
-      <ion-note item-end>Toyota Camry 2016</ion-note>
     </ion-item>
 
   </ion-list>
@@ -110,66 +112,71 @@
     <ion-item>
       Grocery
       <ion-icon name='cart' item-start></ion-icon>
-      <ion-note item-end>Toyota Camry 2016</ion-note>
+      <ion-note item-end>${{user_data.ret.user.spending.grocery}}</ion-note>
     </ion-item>
 
     <ion-item>
       Entertaiment
       <ion-icon name='happy' item-start></ion-icon>
-      <ion-note item-end>Crucio!</ion-note>
+      <ion-note item-end>${{user_data.ret.user.spending.restaurant}}</ion-note>
     </ion-item>
 
 
     <ion-item>
       Subscription
       <ion-icon name='infinite' item-start></ion-icon>
-      <ion-note item-end>Crucio!</ion-note>
+      <ion-note item-end>${{user_data.ret.user.spending.monthly_suscription}}</ion-note>
     </ion-item>
 
+    <ion-item>
+      Other Spending
+      <ion-icon name='infinite' item-start></ion-icon>
+      <ion-note item-end>${{user_data.ret.user.spending.other_spending}}</ion-note>
+    </ion-item>
 
   </ion-list>
 
       <ion-list>
 
     <ion-list-header>
-    <ion-icon name='usd' item-start></ion-icon>
+    <ion-icon name='list-box' item-start></ion-icon>
       Summary
     </ion-list-header>
 
     <ion-item>
       Yearly Income
       <ion-icon name='cash' item-start></ion-icon>
-      <ion-note item-end>Toyota Camry 2016</ion-note>
+      <ion-note item-end>${{user_data.ret.user.yearly_income}}</ion-note>
     </ion-item>
 
     <ion-item>
       Federal Tax
       <ion-icon name='cash' item-start></ion-icon>
-      <ion-note item-end>Toyota Camry 2016</ion-note>
+      <ion-note item-end>${{get_fed_tax()}}</ion-note>
     </ion-item>
 
     <ion-item>
       State Tax
       <ion-icon name='cash' item-start></ion-icon>
-      <ion-note item-end>Crucio!</ion-note>
+      <ion-note item-end>${{get_state_tax()}}</ion-note>
     </ion-item>
 
     <ion-item>
       Local Tax
       <ion-icon name='cash' item-start></ion-icon>
-      <ion-note item-end>percent</ion-note>
+      <ion-note item-end>${{get_local_tax()}}</ion-note>
     </ion-item>
 
     <ion-item>
       After-Tax
       <ion-icon name='card' item-start></ion-icon>
-      <ion-note item-end>Crucio!</ion-note>
+      <ion-note item-end>${{get_after_tax()}}</ion-note>
     </ion-item>
 
     <ion-item>
       After-Expense
       <ion-icon name='card' item-start></ion-icon>
-      <ion-note item-end>Crucio!</ion-note>
+      <ion-note item-end>$Crucio!</ion-note>
     </ion-item>
 
   </ion-list>
