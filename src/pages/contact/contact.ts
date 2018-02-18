@@ -12,11 +12,13 @@ import {UserDataProvider} from '../../providers/user-data/user-data';
 export class ContactPage {
 
   user_data = null;
-
+  after_expense = null;
   constructor(public navCtrl: NavController, user_data_provider: UserDataProvider) {
   	this.user_data = user_data_provider.get_user_data();
+  	this.after_expense = (user_data_provider.getAfterExpenses()).toFixed(2);
   	console.log(this.user_data)
   }
+ 
 
   public get_fed_tax(){
   	return (this.user_data.tax.fed).toFixed(2)
