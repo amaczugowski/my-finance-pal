@@ -49,7 +49,7 @@ export class MyChartComponent implements AfterViewInit {
             "Saving"
           ],
           datasets: [{
-              label: '# of Votes',
+              label: 'Spending by Category',
               data: [
                 this.taxes, 
                 this.housing, 
@@ -65,11 +65,21 @@ export class MyChartComponent implements AfterViewInit {
                   'rgba(22, 128, 44, 1)'
               ],
               borderWidth: 1
-          }]
+          }],
+          display: false
       },
       options: {
+        legend: {
+          display: true
+          // position: 'right'
+        },
+        // scale: {
+        //   ticks: {
+        //     display: false
+        //   }
+        // },
         responsive: false,
-        display:true
+        display: true
       }
     });
   }
