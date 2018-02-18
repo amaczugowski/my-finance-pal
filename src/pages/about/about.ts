@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { MyChartComponent } from '../../components/my-chart/my-chart';
 
 @Component({
   selector: 'page-about',
