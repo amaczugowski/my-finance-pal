@@ -11,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { MyChartComponent } from '../components/my-chart/my-chart';
+import { MyGraphComponent } from '../components/my-graph/my-graph';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,7 +28,8 @@ export function userDataProviderFactory(provider: UserDataProvider) {
     ContactPage,
     HomePage,
     TabsPage,
-    MyChartComponent
+    MyChartComponent,
+    MyGraphComponent
   ],
   imports: [
     BrowserModule,

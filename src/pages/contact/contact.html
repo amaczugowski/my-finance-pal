@@ -8,7 +8,7 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-title>My Profile </ion-title>
+    <ion-title>Profile </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -16,7 +16,7 @@
   <ion-list no-border>
 
     <ion-list-header>
-      <ion-icon name='planet' item-start></ion-icon>
+      <ion-icon name='home' item-start></ion-icon>
       Housing
     </ion-list-header>
 
@@ -38,7 +38,7 @@
 
     <ion-item>
       <ion-icon name='wifi' item-start></ion-icon>
-      Utulity
+      Utility
       <ion-note item-end>
       ${{user_data.ret.user.house.utulity}}
       </ion-note>
@@ -66,9 +66,9 @@
 
     <div *ngIf="user_data.ret.user.vehicule.has_vehicule">
       <ion-item>
-        car
+        Car
         <ion-icon name='car' item-start></ion-icon>
-        <ion-note item-end>{{user_data.ret.user.vehicule.car_make}} {{user_data.ret.user.vehicule.car_model}} ${{user_data.ret.user.vehicule.car_year}}</ion-note>
+        <ion-note item-end>{{user_data.ret.user.vehicule.car_make}} {{user_data.ret.user.vehicule.car_model}} {{user_data.ret.user.vehicule.car_year}}</ion-note>
       </ion-item>
 
       <ion-item>
@@ -79,7 +79,7 @@
 
 
       <ion-item>
-        fuel
+        Fuel
         <ion-icon name='flash' item-start></ion-icon>
         <ion-note item-end>${{user_data.ret.user.vehicule.fuel}}</ion-note>
       </ion-item>
@@ -116,7 +116,7 @@
     </ion-item>
 
     <ion-item>
-      Entertaiment
+      Entertainment
       <ion-icon name='happy' item-start></ion-icon>
       <ion-note item-end>${{user_data.ret.user.spending.restaurant}}</ion-note>
     </ion-item>

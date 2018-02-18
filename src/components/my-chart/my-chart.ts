@@ -31,12 +31,6 @@ export class MyChartComponent implements AfterViewInit {
     this.transportation = userDataProvider.getTransportation();
     this.spending = userDataProvider.getSpending();
     this.saving = userDataProvider.getSaving();
-    console.log(this.taxes);
-    console.log(this.housing);
-    console.log(this.transportation);
-    console.log(this.spending);
-    console.log(this.saving);
-
   }
 
   public get_fed_tax(){
@@ -84,11 +78,21 @@ export class MyChartComponent implements AfterViewInit {
                   'rgba(22, 128, 44, 1)'
               ],
               borderWidth: 1
-          }]
+          }],
+          display: false
       },
       options: {
+        legend: {
+          display: true,
+          position: 'bottom'
+        },
+        // scale: {
+        //   ticks: {
+        //     display: false
+        //   }
+        // },
         responsive: false,
-        display:true
+        display: true
       }
     });
 
