@@ -64,8 +64,8 @@ export class MyChartComponent implements AfterViewInit {
       },
       options: {
         legend: {
-          display: true
-          // position: 'right'
+          display: true,
+          position: 'bottom'
         },
         // scale: {
         //   ticks: {
