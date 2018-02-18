@@ -33,6 +33,7 @@ export class MyChartComponent implements AfterViewInit {
     console.log(this.transportation);
     console.log(this.spending);
     console.log(this.saving);
+
   }
 
   ngAfterViewInit() {
@@ -49,7 +50,6 @@ export class MyChartComponent implements AfterViewInit {
             "Saving"
           ],
           datasets: [{
-              label: 'Spending by Category',
               data: [
                 this.taxes, 
                 this.housing, 
@@ -82,6 +82,25 @@ export class MyChartComponent implements AfterViewInit {
         display: true
       }
     });
+    this.canvas.onclick = function(e) {
+       var slice = myChart.getElementAtEvent(e);
+       if (!slice.length) return; // return if not clicked on slice
+       var label = slice[0]._model.label;
+       switch (label) {
+          // add case for each label/slice
+          case 'Taxes':
+             alert('clicked on slice 5');
+             window.open('www.example.com/foo');
+             break;
+          case 'Housing':
+             alert('clicked on slice 6');
+             window.open('www.example.com/bar');
+             break;
+          default:
+            alert(label)
+          // add rests ...
+        }
+      }
   }
 
 }
